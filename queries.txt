@@ -1,0 +1,14 @@
+select a.location, count(a.location) from (select * from tbNetworkRecord_v2 where DATE(date_time)='2019-11-19') as a group by a.location;
+
+SELECT * FROM tbNetworkRecord_v2 WHERE DATE(date_time)='2019-11-19' AND TIME(date_time) >= '18:00:00' AND TIME(date_time) < '19:00:00';
+
+SELECT MAC,location,pack_type FROM tbNetworkRecord_v2 WHERE DATE(date_time)='2019-11-19' AND TIME(date_time) >= '18:00:00' AND TIME(date_time) < '19:00:00' AND location='multimidia';
+
+SELECT MAC,location,pack_type FROM tbNetworkRecord_v2 WHERE DATE(date_time)='2019-11-19' AND TIME(date_time) >= '18:00:00' AND TIME(date_time) < '19:00:00' AND location='multimidia';
+
+ SELECT SUBSTR(MAC,1,8),location,pack_type FROM tbNetworkRecord_v2 WHERE DATE(date_time)='2019-11-19' AND TIME(date_time) >= '18:00:00' AND TIME(date_time) < '19:00:00' AND location='multimidia';
+
+  SELECT a.MAC, COUNT(a.MAC) FROM ( SELECT SUBSTR(MAC,1,8) AS MAC  FROM tbNetworkRecord_v2 WHERE DATE(date_time)='2019-11-19' AND TIME(date_time) >= '18:00:00' AND TIME(date_time) < '19:00:00' AND location='multimidia') AS a GROUP BY a.MAC;
+
+
+  SELECT a.MAC, COUNT(a.MAC) FROM ( SELECT SUBSTR(MAC,1,8) AS MAC  FROM tbNetworkRecord_v2 WHERE DATE(date_time)='2019-11-19' AND TIME(date_time) >= '18:00:00' AND TIME(date_time) < '19:00:00' AND location='multimidia' AND pack_type = '0008') AS a GROUP BY a.MAC;
